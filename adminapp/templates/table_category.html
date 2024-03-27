@@ -1,0 +1,31 @@
+{% extends 'admin_page.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>category name</th>
+        <th >category description</th>
+        <th >category image</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td> {{i.name}}</td>
+        <td>{{i.description}}</td>
+        <td><img style="height: 50px;width: 50px;" src="{{i.image.url}}" alt=""></td>
+        <td><a href="{% url 'edit' id=i.id %}"><button style="background-color: yellow;">edit</button></a></td>
+        <td><a href="{% url 'dlt' id=i.id %}"><button style="background-color: yellow;">delete</button></a></td>
+      </tr>
+      
+  {% endfor %}
+    
+    </tbody>
+  </table>
+
+{% endblock %}

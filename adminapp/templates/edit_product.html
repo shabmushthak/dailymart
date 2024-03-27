@@ -1,0 +1,58 @@
+{% extends 'admin_page.html' %}
+
+{% block content %}
+
+<html>
+ {% for i in data %}
+<form action="{% url 'updateproduct' id=i.id %}"  method="post"  enctype="multipart/form-data">
+  {% csrf_token %}
+    <div class="card-body">
+      <div class="form-group">
+        <label for="exampleInputEmail1">movie name</label>
+        <input type="text" class="form-control" id="" placeholder="enter movie"  value="{{i.name}}" name="name">
+      </div>
+      <div class="form-group">
+        <label for=""> product price</label>
+        <input type="text" class="form-control" id="" placeholder="price" value="{{i.price}}" name="price">
+        
+        <label for="">product category</label>
+
+
+        <select name="category" id="">
+          {% for i in data3 %} 
+          <option value="{{i.name}}">{{i.name}}</option>
+          {% endfor %}
+         </select>
+
+
+
+
+        <label for="">description</label>
+        <input type="text" placeholder="description" value="{{i.description}}" name=" description"  >
+       
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">poster</label>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" name="image">
+            
+          </div>
+          <div class="input-group-append">
+            <span class="input-group-text">Upload</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  {% endfor %}   
+  </html>
+
+  {% endblock %}

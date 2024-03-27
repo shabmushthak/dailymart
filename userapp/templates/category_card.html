@@ -1,0 +1,54 @@
+{% extends "main_page.html" %}
+{% block content %}
+
+
+
+    <body>
+
+
+        
+        <!-- Fruits Shop Start-->
+        <div class="container-fluid fruite py-5">
+            <div class="container py-5">
+                <h1 class="mb-4">Fresh fruits shop</h1>
+                <div class="row g-4">
+                    <div class="col-lg-12">
+                        
+                        <div class="row g-4" style="margin-left: 180px;">
+                            
+                            <div class="col-lg-9">
+                                <div class="row g-4 justify-content-center">
+                                    {% for i in data %}
+                                    <div class="col-md-6 col-lg-6 col-xl-4">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img style="height: 300px;width: 300px;" src="{{i.image.url}}" class="img-fluid w-100 rounded-top" alt="">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;"></div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4>{{i.name}}</h4>
+                                                
+                                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                                    <p class="text-dark fs-5 fw-bold mb-0">{{i.description}}</p><br>
+                                                   
+                                                    <a href="{% url 'pro_card' category=i.name %}" class=""><button style="color: black;background-color: yellow;">view product</button></a><br>
+                                                    
+                                                    
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+
+    </body>
+    
+{% endblock %}

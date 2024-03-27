@@ -1,0 +1,31 @@
+{% extends 'admin_page.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>number</th>
+        <th >mail</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{i.name}}</td>
+        <td>{{i.number}}</td>
+        <td>{{i.mail}}</td>
+        
+        <td><a href="{% url 'dltcontact' id=i.id %}"><button style="background-color: yellow;">delete</button></a></td>
+      </tr>
+      
+  {% endfor %}
+    
+    </tbody>
+  </table>
+
+{% endblock %}

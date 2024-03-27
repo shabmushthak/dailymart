@@ -1,0 +1,34 @@
+{% extends 'admin_page.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>username</th>
+        <th>contact</th>
+        <th >product name</th>
+        <th>quantity</th>
+        <th>total</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{i.userid.username}}</td>
+        <td>{{i.userid.contact}}</td>
+        <td>{{i.cartid.productid.name}}</td>
+        <td>{{i.cartid.quantity}}</td>
+        <td>{{i.cartid.total}}</td>
+        
+        <td><a href="{% url 'dltorder' id=i.id %}"><button style="background-color: yellow;">delete</button></a></td>
+      </tr>
+      
+  {% endfor %}
+    
+    </tbody>
+  </table>
+  {% endblock %}

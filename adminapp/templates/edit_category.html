@@ -1,0 +1,42 @@
+{% extends 'admin_page.html' %}
+
+{% block content %}
+
+<html>
+  {% for i in data %}
+<form action="{% url 'update' id=i.id %}"  method="post"  enctype="multipart/form-data">
+  {% csrf_token %}
+    <div class="card-body">
+      <div class="form-group">
+        <label for="exampleInputEmail1">category name</label>
+        <input type="text" class="form-control" id="" placeholder="enter movie"  name="name"  value="{{i.name}}">
+      </div>
+      <div class="form-group">
+        <label for=""> category description </label>
+        <input type="text" class="form-control" id="" placeholder="language"  name="description"  value="{{i.description}}">
+        
+   </div>
+      <div class="form-group">
+        <label for="exampleInputFile">category image</label>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" name="image">
+            
+          </div>
+          <div class="input-group-append">
+            <span class="input-group-text">Upload</span>
+          </div>
+        </div>
+      </div>
+    
+    </div> 
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+{% endfor %}
+  </html>
+
+  {% endblock %}

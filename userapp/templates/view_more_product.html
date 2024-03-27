@@ -1,0 +1,72 @@
+{% extends "main_page.html" %}
+{% block content %}
+<br><br><br><br><br><br><br><br><br>
+{% for i in data %}
+
+<div class="col-lg-8">
+    <div class="row">
+        <div class="col-lg-6">
+           
+                <a href="#">
+                    <img src="{{i.image.url}}" style="height: 400px;width: 400px;margin-left: 30px;"    class="img-fluid rounded" alt="Image">
+                </a>
+           
+        </div>
+        <div class="col-lg-6">
+            <h4 class="fw-bold">{{i.name}}</h4>
+            <h5 class="fw-bold"> {{i.category}}</h5>
+            <h5 class="fw-bold"> {{i.price}}</h5>
+
+            <p class="mb-3">{{i.description}}</p>
+           
+            <!-- <div class="d-flex mb-4"> 
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star"></i>
+            </div>
+            <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
+            <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p> --> 
+            <form action="{% url 'cartdata' id=i.id %}" method="post">
+                {% csrf_token %}
+            <div class="input-group quantity mb-5" style="width: 100px;">
+               
+                <input type="number" class="form-control form-control-sm text-center border-0" name="quantity" id="quantity" value="1">
+                <input type="hidden" class="form-control form-control-sm text-center border-0" name="price" id="price" value="{{i.price}}">
+                <input type="text" class="form-control form-control-sm text-center border-0" name="total"  id="total" value="{{i.price}}">
+            
+            </div>
+            <i class="fa fa-shopping-bag me-2 text-primary"></i><button style="background-color: yellow;" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary" type="submit"> Add to cart</button></a>
+
+        </form>
+            <div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+            
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                <script>
+                    $(document).ready(function()
+                    {
+                        $('#quantity').on('change', function(){
+                            var quantity=$('#quantity').val();
+                            var price=$('#price').val();
+                            var total=parseInt(quantity)*parseInt(price);
+                            $('#total').val(total);
+                        })
+                    })
+                </script>
+            
+            </div>
+
+           
+        </div>
+    
+    </div>
+</div>
+
+{% endfor %}
+<br><br><br><br><br>
+{% endblock %}
+

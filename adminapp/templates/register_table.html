@@ -1,0 +1,32 @@
+{% extends 'admin_page.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>username</th>
+        <th>password</th>
+        <th >contact</th>
+        <th>mail</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td> {{i.username}}</td>
+        <td>{{i.password}}</td>
+        <td>{{i.contact}}</td>
+        <td>{{i.mail}}</td>
+        
+        <td><a href="{% url 'dlt1' id=i.id %}"><button style="background-color: yellow;">delete</button></a></td>
+      </tr>
+      
+  {% endfor %}
+    
+    </tbody>
+  </table>
+  {% endblock %}

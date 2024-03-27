@@ -1,0 +1,40 @@
+{% extends 'main_page.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br>
+<div  class="container-fluid banner bg-secondary my-5">
+    <div class="container py-5">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="py-4">
+                    <h1 class="display-3 text-white">THANKYOU FOR CHOOSING US</h1>
+                    <p class="fw-normal display-3 text-dark mb-4">your order placed successfully</p>
+                    <!-- <p class="mb-4 text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p> -->
+                    <!-- <a href="/pro_card" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a> -->
+                </div>
+            </div>
+<br>
+            <div class="row g-4 text-center align-items-center justify-content-center pt-4">
+              <a href="{% url 'home' %}">  <button style="background-color: white;" type="submit" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary"> SHOP MORE</button></a>
+             </div>
+
+            <div class="col-lg-6">
+                <!-- <div class="position-relative">
+                    <img src="/static/img/pexels-jane-doan-1132047.jpg" class="img-fluid w-100 rounded" alt="image">
+                    <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
+                        <h1 style="font-size: 100px;">1</h1>
+                        <div class="d-flex flex-column">
+                            <span class="h2 mb-0">50$</span>
+                            <span class="h4 text-muted mb-0">kg</span>
+                        </div>
+                    </div>
+                </div> -->
+
+                                         
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
